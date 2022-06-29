@@ -13,15 +13,20 @@
 bundle install
 # -u: ハマトラSNSのユーザー名 (メールアドレス)
 # -p: ハマトラSNSのログインパスワード
-bundle exec ruby scraping.rb -u <user> -p <password>
+# -c: 付与した場合、指定したコミュニティIDのメッセージを取得
+bundle exec ruby scraping.rb -u <user> -p <password> -c <community_id>
 ```
 
 上記コマンドを実行すると、/outputディレクトリ内にハマトラSNS内で書いた自分の日記が出力されます。
-日記は以下のようなフォーマットで出力されます。
+日記・コミュニティは以下のようなフォーマットで出力されます。
 
 ```shell
 output/
-└── YYYYMMDDhhmmss
-    ├── [日記に添付した画像ファイル].jpg
-    └── [日記タイトル].txt
+├── my_diary
+│      └── YYYYMMDDhhmmss
+│             ├── [日記に添付した画像ファイル].jpg
+│             └── [日記タイトル].txt
+└── communities
+    └── [コミュニティID]
+        └── messages.txt
 ```
